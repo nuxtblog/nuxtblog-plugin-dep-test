@@ -1,6 +1,6 @@
 id: nuxtblog-plugin-dep-test
 title: Dependency Test
-version: 0.1.1
+version: 0.1.2
 icon: i-tabler-git-branch
 author: nuxtblog
 description: 依赖管理测试插件，依赖 hello-js 并读取其配置

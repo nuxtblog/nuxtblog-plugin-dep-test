@@ -1,0 +1,4 @@
+{
+  "extends": "@nuxtblog/plugin-sdk",
+  "include": ["src"]
+}

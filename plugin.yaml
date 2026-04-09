@@ -1,0 +1,39 @@
+id: nuxtblog-plugin-dep-test
+title: Dependency Test
+version: 0.1.1
+icon: i-tabler-git-branch
+author: nuxtblog
+description: 依赖管理测试插件，依赖 hello-js 并读取其配置
+
+type: js
+runtime: interpreted
+trust_level: community
+license: MIT
+sdk_version: "1.0.0"
+priority: 100
+
+tags: [demo, test, dependency]
+
+js_entry: dist/plugin.js
+admin_js: admin.mjs
+
+depends:
+  - id: nuxtblog-plugin-hello-js
+    version: ">=0.2.0"
+
+settings:
+  - key: prefix
+    label: 输出前缀
+    type: string
+    default: "[dep-test]"
+    description: 路由输出时添加的前缀
+
+pages:
+  - path: /admin/dep-test
+    slot: admin
+    component: DepTestPanel
+    title: 依赖测试
+    nav:
+      group: 插件
+      icon: i-tabler-git-branch
+      order: 99

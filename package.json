@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "esbuild src/plugin.ts --bundle --outfile=dist/plugin.js --format=cjs --target=es2015",
+    "build:web": "cd web && pnpm build",
+    "build:all": "pnpm build && pnpm build:web",
+    "check": "tsc --noEmit"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  },
+  "devDependencies": {
+    "@nuxtblog/plugin-sdk": "^0.3.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.8.0"
+  }
+}

@@ -38,7 +38,7 @@ jobs:
           pnpm build
 
       - name: Package plugin
-        run: zip -r plugin.zip plugin.yaml dist/
+        run: zip -r plugin.zip plugin.yaml dist/ admin.mjs
 
       - name: Create GitHub Release
         env:

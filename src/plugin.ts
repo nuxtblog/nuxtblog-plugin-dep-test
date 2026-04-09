@@ -23,21 +23,9 @@ module.exports = {
         const helloAvailable = ctx.plugins.isAvailable("nuxtblog-plugin-hello-js");
         const helloVersion = ctx.plugins.getVersion("nuxtblog-plugin-hello-js");
 
-        // Try fetching hello-js greeting via internal HTTP
-        var helloGreeting = "";
-        try {
-          var resp = ctx.http.fetch(
-            "http://127.0.0.1:8000/api/plugin/nuxtblog-plugin-hello-js/hello"
-          );
-          if (resp && resp.body) {
-            var parsed = JSON.parse(resp.body);
-            if (parsed.data && parsed.data.greeting) {
-              helloGreeting = parsed.data.greeting;
-            }
-          }
-        } catch (e) {
-          helloGreeting = "(fetch failed)";
-        }
+        // Read hello-js greeting via shared settings API
+        var helloGreeting = ctx.plugins.getSetting("nuxtblog-plugin-hello-js", "greeting");
+        if (!helloGreeting) helloGreeting = "Hello from Goja!";
 
         return {
           code: 0,
